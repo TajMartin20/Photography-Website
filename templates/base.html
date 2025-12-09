@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{% block title %}Photography{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="{{ url_for('index') }}">PhotoBasics</a>
+      <nav class="nav">
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('lenses') }}">Lenses</a>
+        <a href="{{ url_for('iso') }}">ISO</a>
+        <a href="{{ url_for('aperture') }}">Aperture</a>
+        <a href="{{ url_for('shutter_speed') }}">Shutter Speed</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="footer">
+    <div class="container">© {{ (moment().year if moment is defined else '') }} PhotoBasics</div>
+  </footer>
+</body>
+</html>
